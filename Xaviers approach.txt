@@ -1,0 +1,16 @@
+XAVIER'S APPROACH USING CO2SYS
+
+[23:56, 13/10/2022] Xavier Brilliant Planet:
+Essentially I calculated the carbon drawdown from adding a certain amount of alkalinity
+to seawater. In this case specifically I took water with 600000 uM of alkalinity and a DIC of 1600 (that's an assumption but this value
+won't affect the end result much at all) then mixed it with different volumes of seawater (whose carbon chemistry is on the
+LCA&MRV PowerPoint presentation). 
+I then now have mixed water with new alkalinity, dic and volume, call it ta_mix, dic_mix and V_tot. 
+Next step is to calculate what the dic of this water will be after the partial pressure (pCO2) goes back to the seawater value (412ppm I
+believe). That is simply done in co2sys by taking the par1 to be ta= ta_mix and par2 to be pCO2 = 412 and then getting the dic of the
+result from co2sys, call it dic_eq (stands for dic after equilibration). Finally then the amount of CO2 absorbed from the gas exchange
+equilibration process is CO2_drawdown = V_tot * (dic_eq - dic_mix). We multiply by V as the difference in dic would only give a change
+per litre (do make sure V_tot is in litres). We can then get the CO2_drawdown per mole of alkalinity by doing CO2_drawdown (in uM)/600000
+where 600000 is the amount of uM added (that is by taking the volume of discharge water to be 1litre). Also worth mentioning your Volume of
+seawater to mix with is probably gonna need to be quite high before you max out the co2 drawdown per unit alkalinity added so if you want
+to try and do this calculation do test out multiple volumes and see if co2 drawdown stabilises to a value or if it still increases 👍
